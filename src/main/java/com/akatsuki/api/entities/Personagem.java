@@ -1,4 +1,4 @@
-package entities;
+package com.akatsuki.api.entities;
 
 import jakarta.persistence.*;
 
