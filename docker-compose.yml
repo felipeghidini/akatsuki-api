@@ -25,7 +25,8 @@ services:
       # credenciais de banco
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/akatsuki
       SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_DATASOURCE_PASSWORD: Mandy&fe18
+#      SPRING_DATASOURCE_PASSWORD: postgres
 
       # variáveis opcionais (já previstas no application-dev.properties)
       APP_PROFILE: dev
