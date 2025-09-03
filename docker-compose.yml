@@ -3,11 +3,11 @@ version: "3.9"
 services:
   postgres:
     image: postgres:15
-    container_name: akatsuki_api
+    container_name: akatsuki_db
     restart: always
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: Mandy&fe18
+      POSTGRES_PASSWORD: postgres
       POSTGRES_DB: akatsuki
     ports:
       - "5432:5432"
@@ -19,10 +19,18 @@ services:
     container_name: akatsuki_app
     restart: always
     environment:
-      SPRING_PROFILES_ACTIVE: dev # ou prod, dependendo do ambiente
+      # profile ativo no Spring
+      SPRING_PROFILES_ACTIVE: dev
+
+      # credenciais de banco
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/akatsuki
       SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: Mandy&fe18
+      SPRING_DATASOURCE_PASSWORD: postgres
+
+      # variáveis opcionais (já previstas no application-dev.properties)
+      APP_PROFILE: dev
+      CORS_ORIGINS: http://localhost:5173,http://localhost:3000
+
     ports:
       - "8080:8080"
     depends_on:
